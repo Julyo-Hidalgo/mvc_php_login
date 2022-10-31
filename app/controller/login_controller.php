@@ -1,11 +1,14 @@
 <?php
 class login_controller{
-    public static function form(){
+    public static function form_login(){
         include 'view\modules\login\login.php';
     }
 
+    public static function form_cadastro(){
+        include 'view/modules/login/cadastro.php';
+    }
+
     public static function auth(){
-        include 'model/login_model.php';
         $model = new login_model();
 
         $model->email = $_POST['email'];
@@ -13,6 +16,6 @@ class login_controller{
 
         $model->auth();
 
-        header("Location: /pessoa");
+        header("Location: /");
     }
 }

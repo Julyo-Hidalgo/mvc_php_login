@@ -1,5 +1,5 @@
 <?php
-class pessoa_dao{
+class login_dao{
     private $conexao;
     public function __construct(){
         $dns = "mysql:host=localhost:3307;dbname=mydb";
@@ -7,7 +7,7 @@ class pessoa_dao{
     }
 
     public function SelectByEmailAndSenha(login_model $model){
-        $sql = "select * from user where id = ? and email = ?";
+        $sql = "select * from user where email = ? and pwd = ?";
 
         $stmt = $this->conexao->prepare($sql);
 
@@ -16,6 +16,6 @@ class pessoa_dao{
 
         $stmt->execute;
 
-        return $stmt->fetchAll(PDO::FETCH_CLASS);
+        return $stmt->fetchObject("login_model");
     }
 }

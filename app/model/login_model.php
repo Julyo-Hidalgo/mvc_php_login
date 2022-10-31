@@ -3,9 +3,14 @@ class login_model{
     public $email, $senha;
 
     public function auth(){
-        include 'dao/dao_login.php';
-        $dao = new pessoa_dao();
-        $dao->SelectByEmailAndSenha($this);
-    }
+        $dao = new login_dao();
+        
+        $rows =  $dao->SelectByEmailAndSenha($this);
 
+        if ($rows-> email == $this-> email){
+            return $rows;
+        }else{
+            return new login_model();
+        }
+    }
 }

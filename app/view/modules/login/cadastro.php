@@ -11,14 +11,15 @@
 <body>
     <div id="form" method="post" action="/login/auth">
         <form>
-            <legend>login:</legend>
+            <legend>cadastro:</legend>
+
             <label for="email">email:</label>
             <input id="email" name="email" type="text">
 
             <label for="senha">senha:</label>
             <input id="senha" name="senha" type="text">
 
-            <button type="submit">Logar</button>
+            <button type="submit">Cadastrar</button>
         </form>
     </div>
 </body>
