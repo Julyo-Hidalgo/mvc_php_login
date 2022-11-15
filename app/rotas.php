@@ -1,5 +1,7 @@
 <?php
 
+use app\controller\pessoa_controller;
+
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 switch($url){
@@ -7,16 +9,20 @@ switch($url){
         echo "Início";
     break;
 
-    case '/login':
-        login_controller::form_login();
+    case '/pessoa':
+        pessoa_controller::index();
     break;
 
-    case '/login/auth':
-        login_controller::auth();  
+    case '/pessoa/form':
+        pessoa_controller::form();
     break;
 
-    case '/cadastro':
-        login_controller::form_cadastro();
+    case '/pessoa/form/save':
+        pessoa_controller::save();
+    break;
+
+    case '/pessoa/delete':
+        pessoa_controller::delete();
     break;
 
     default:

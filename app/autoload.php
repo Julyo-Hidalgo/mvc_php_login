@@ -1,19 +1,36 @@
 <?php
 
 spl_autoload_register(
-    function ($classe){
+    
+    //função do php para fazer autoload.
+    //spl: standard php library
+    function ($nome_classe){
+        //echo 'tentou dar include em: ' . $nome_classe;
+        $classe = BASEDIR . $nome_classe . '.php';
 
-        $dao = 'dao/' . $classe . '.php';
-        $model = 'model/' . $classe . '.php';
-        $controller = 'controller/' . $classe . '.php';
-        
-        if (file_exists($dao)){
-            include $dao;
-        }else if (file_exists($model)){
-            include $model;
-        }else if (file_exists($controller)){
-            include $controller;
-        }
+        //substituindo backslash(\) por /
+        $classe = str_replace("\\", "/", $classe);
+
+        include $classe;
+
+        /*
+        //função anônima/lambda definida no parâmetro da função
+        $classe_controller = 'controller/' . $nome_classe . ".php";
+        $classe_model = 'model/' . $nome_classe . ".php";
+        $classe_dao = 'dao/' . $nome_classe . ".php";
+
+        if (file_exists($classe_model)){
+            //verificando se o arquivo existe para incluí-lo
+            include $classe_model;
+
+        }else if (file_exists($classe_controller)){
+
+            include $classe_controller;
+
+        }else if (file_exists($classe_dao)){
+
+            include $classe_dao;
+
+        }*/
     }
-
 );

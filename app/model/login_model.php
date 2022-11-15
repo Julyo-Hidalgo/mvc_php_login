@@ -1,16 +1,20 @@
 <?php
-class login_model{
-    public $email, $senha;
 
-    public function auth(){
+namespace app\model;
+use app\dao\login_dao;
+
+class login_model extends model{
+    public $id, $nome, $email, $senha;
+
+    public function autenticar(){
         $dao = new login_dao();
         
-        $rows =  $dao->SelectByEmailAndSenha($this);
+        $usuario_dados_logado = $dao->selectByEmailAndSenha($this->email, $this->senha);
 
-        if ($rows-> email == $this-> email){
-            return $rows;
+        if (is_object($usuario_dados_logado)){
+            return $usuario_dados_logado;
         }else{
-            return new login_model();
+            null;
         }
     }
 }
