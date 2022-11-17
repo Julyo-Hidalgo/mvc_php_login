@@ -1,5 +1,6 @@
 <?php
 
+use app\controller\login_controller;
 use app\controller\pessoa_controller;
 
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -9,6 +10,15 @@ switch($url){
         echo "Início";
     break;
 
+    //login
+    case '/login':
+        login_controller::index();
+    break;
+    case '/login/auth':
+        login_controller::auth();
+    break;
+
+    //pessoa
     case '/pessoa':
         pessoa_controller::index();
     break;
