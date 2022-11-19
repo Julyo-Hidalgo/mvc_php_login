@@ -17,13 +17,14 @@
     </style>
 </head>
 <body>
-    <form method="post" action="">
+    <form method="post" action="/login/auth">
         <fieldset>
             <legend>Login:</legend>
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome">
+            
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email">
 
-            <label for="nome">Senha:</label>
+            <label for="senha">Senha:</label>
             <input type="password" id="senha" name="senha">
 
             <button type="submit">Entrar</button>

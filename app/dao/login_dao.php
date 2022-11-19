@@ -10,7 +10,7 @@ class login_dao extends dao{
     }
 
     public function selectByEmailAndSenha($email, $senha){
-        $sql = "select * from login where email = ? and senha = ?";
+        $sql = "select * from user where email = ? and senha = sha1(?)";
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $email);
         $stmt->bindValue(2, $senha);

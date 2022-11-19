@@ -14,6 +14,7 @@ switch($url){
     case '/login':
         login_controller::index();
     break;
+    
     case '/login/auth':
         login_controller::auth();
     break;
