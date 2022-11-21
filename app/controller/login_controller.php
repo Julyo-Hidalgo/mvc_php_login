@@ -5,7 +5,13 @@ use app\model\login_model;
 
 class login_controller extends controller{
     public static function index(){
-        parent::render('/login/form');
+        parent::render('login/login_form');
+    }
+
+    
+
+    public static function cadastro(){
+        parent::render('login/cadastro_form');
     }
 
     public static function auth(){
@@ -21,5 +27,15 @@ class login_controller extends controller{
             header("Location: /");
         }else
             header("Location: /login?erro=true");
+    }
+
+    public static function save(){
+        $model  = new login_model();
+
+        $model->nome = $_POST['nome'];
+        $model->email = $_POST['email'];
+        $model->senha = $_POST['senha'];
+
+        $model->save();
     }
 }

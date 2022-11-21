@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+body{
+    background-color: rgb(255, 71, 102);
+    color: white;
+}
+
+h1{
+    text-align: center;
+}
+
+fieldset{
+    background-color: rgb(236, 85, 110);
+    border-color: white;
+    font-size: large;
+    margin: 13% auto;
+    width: 15%;
+    position: relative;
+    padding: 1%;
+}
+
+label, input, button{
+    font-size: large;
+    position: relative;
+    text-align: center;
+    margin: 5% auto;
+    display: block;
+}

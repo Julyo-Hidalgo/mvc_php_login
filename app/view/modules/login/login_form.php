@@ -5,19 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <style>
-        fieldset{
-            margin: auto;
-            width: 30%;
-            position: relative;
-        }
-        label, input{
-            display: block;
-        }
-    </style>
+    <link rel="stylesheet" href= "/view/modules/login/css/estilo.css">
 </head>
 <body>
     <form method="post" action="/login/auth">
+        <h1>Login</h1>
         <fieldset>
             <legend>Login:</legend>
             

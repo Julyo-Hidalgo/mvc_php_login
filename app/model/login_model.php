@@ -17,4 +17,10 @@ class login_model extends model{
             null;
         }
     }
+
+    public function save(){
+        $dao = new login_dao();
+
+        $dao->insert($this);
+    }
 }
