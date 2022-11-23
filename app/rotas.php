@@ -26,7 +26,11 @@ switch($url){
     case '/cadastro/save':
         login_controller::save();
     break;
-   
+
+    case '/main':
+        login_controller::main();
+    break;
+    
     //pessoa
     case '/pessoa':
         pessoa_controller::index();

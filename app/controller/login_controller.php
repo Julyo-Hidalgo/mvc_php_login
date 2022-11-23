@@ -8,7 +8,9 @@ class login_controller extends controller{
         parent::render('login/login_form');
     }
 
-    
+    public static function main(){
+        parent::render('login/main');
+    }
 
     public static function cadastro(){
         parent::render('login/cadastro_form');
@@ -24,7 +26,7 @@ class login_controller extends controller{
 
         if ($usuario_logado != null){
             $_SESSION['usuario_logado'] = $usuario_logado;
-            header("Location: /");
+            header("Location: /main");
         }else
             header("Location: /login?erro=true");
     }
@@ -37,5 +39,7 @@ class login_controller extends controller{
         $model->senha = $_POST['senha'];
 
         $model->save();
+
+        header("Location: /login");
     }
 }
