@@ -9,15 +9,21 @@ class login_controller extends controller{
     }
 
     public static function main(){
-        parent::render('login/main');
+        $model = new login_model();
+        $model->autenticar();
+        echo ($_SESSION['usuario_logado']);
+        parent::render('login/main', $model);
     }
 
     public static function cadastro(){
         $model = new login_model();
 
-        if(isset($_GET['id']))
-            $model->email = $_SESSION['email'];
-            $model = $model->autenticar();
+        if(isset($_GET['id'])){
+            echo($_SESSION['usuario_logado']);
+            exit;
+        }
+            //$model->email = $_SESSION['email'];
+            //$model = $model->autenticar();
 
         parent::render('login/cadastro_form', $model);
     }
@@ -30,16 +36,18 @@ class login_controller extends controller{
 
         $usuario_logado = $model->autenticar();
 
-        if ($usuario_logado != null){
+        /*if ($usuario_logado != null){
             $_SESSION['usuario_logado'] = $usuario_logado;
+            var_dump($usuario_logado);
+            echo $_SESSION['usuario_logado'];
             header("Location: /main");
         }else
-            header("Location: /login?erro=true");
+            header("Location: /login?erro=true");*/
     }
 
     public static function save(){
         $model  = new login_model();
-
+        $model->id  = $_POST['id'];
         $model->nome = $_POST['nome'];
         $model->email = $_POST['email'];
         $model->senha = $_POST['senha'];

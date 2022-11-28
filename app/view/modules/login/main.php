@@ -10,7 +10,7 @@
 <body>
     <h1>área do usuário</h1>
 
-    <form action="/cadastro">
+    <form action="/cadastro?id=<?= $model->id ?>">
         <button>alterar meus dados</button>
     </form>
 </body>

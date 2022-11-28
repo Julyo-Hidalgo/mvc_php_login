@@ -16,7 +16,6 @@ class pessoa_controller extends controller{
     }
 
     public static function form(){
-        include 'model/pessoa_model.php';
         $model = new pessoa_model();
 
         //verificando se existe o parâmetro na url
