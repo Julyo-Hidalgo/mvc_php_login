@@ -30,4 +30,14 @@ class login_dao extends dao{
 
         header("Location: /");
     }
+
+    public function update(model $model){
+        $sql = "update user nome = ?, email = ?, senha = sha1(?) where id = ?";
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $model->nome);
+        $stmt->bindValue(2, $model->email);
+        $stmt->bindValue(3, $model->senha);
+        $stmt->bindValue(4, $model->id);
+        $stmt->execute();
+    }
 }

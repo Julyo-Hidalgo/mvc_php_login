@@ -12,14 +12,16 @@
         <h1>Cadastro</h1>    
         <fieldset>
             <legend>Cadastro</legend>
-                <label for="nome">Nome</label>
-                <input type="text" id="nome" name="nome">
-                
-                <label for="nome">Email</label>
-                <input type="text" id="email" name="email">
+                <input type="hidden" name="id" value="<?= $model->id ?>">
 
-                <label for="nome">Senha</label>
-                <input type="password" id="senha" name="senha">
+                <label for="nome">Nome</label>
+                <input type="text" id="nome" name="nome" value="<?= $model->nome ?>">
+                
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" value="<?= $model->email ?>">
+
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" value="<?= $model->senha ?>">
                 
                 <button>Cadastrar</button>
         </fieldset>

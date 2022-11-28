@@ -21,6 +21,9 @@ class login_model extends model{
     public function save(){
         $dao = new login_dao();
 
-        $dao->insert($this);
+        if (empty($this->id))
+            $dao->insert($this);
+        else
+            $dao->update($this);
     }
 }

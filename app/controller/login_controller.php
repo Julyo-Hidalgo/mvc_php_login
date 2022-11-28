@@ -13,7 +13,13 @@ class login_controller extends controller{
     }
 
     public static function cadastro(){
-        parent::render('login/cadastro_form');
+        $model = new login_model();
+
+        if(isset($_GET['id']))
+            $model->email = $_SESSION['email'];
+            $model = $model->autenticar();
+
+        parent::render('login/cadastro_form', $model);
     }
 
     public static function auth(){
