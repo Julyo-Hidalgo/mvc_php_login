@@ -9,8 +9,10 @@
 </head>
 <body>
     <h1>área do usuário</h1>
-
-    <form action="/cadastro?id=<?= $model->id ?>">
+    <?php
+    echo(is_object($_SESSION['usuario_logado']));
+    ?>
+    <form action="/cadastro?id=<?= $_SESSION['usuario_logado']->id ?>">
         <button>alterar meus dados</button>
     </form>
 </body>
